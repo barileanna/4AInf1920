@@ -43,6 +43,15 @@ public class Bottiglia {
         return prezzo;
     }
 
+    @Override
+    public String toString() {
+        return "Bottiglia{" +
+                "marchio='" + marchio + '\'' +
+                ", capacita=" + capacita +
+                ", prezzo=" + prezzo +
+                '}';
+    }
+
     public boolean equals (Bottiglia bottiglia){
         boolean bEquals = false;
         if(marchio != null && marchio.equals(bottiglia.getMarchio()) &&

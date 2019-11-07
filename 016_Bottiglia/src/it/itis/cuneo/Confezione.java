@@ -1,5 +1,7 @@
 package it.itis.cuneo;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 import java.util.Arrays;
 
 public class Confezione {
@@ -63,12 +65,14 @@ public class Confezione {
     }
 
     public void removeBottle(int i) {
-        int c=i;
-        while(c<cntBott-1){
+        int c = i;
+        while(c<cntBott-1)
+        {
             vBottiglia[c] = vBottiglia[c+1];
             c++;
         }
         cntBott--;
+
     }
 
     public void modifyBottle(int x) {
@@ -116,9 +120,6 @@ public class Confezione {
             confezione.addBottle(bottiglia6);
             int i = confezione.serchBottle(bottiglia2);
             confezione.removeBottle(i);
-            confezione.addBottle(bottiglia6);
-            int x = confezione.serchBottle(bottiglia3);
-            confezione.modifyBottle(x);
         }
         catch(ConfezionePienaException confezionePiena){
             confezionePiena.printStackTrace();
@@ -126,6 +127,11 @@ public class Confezione {
         } catch (nonTrovatoException e) {
             e.printStackTrace();
             System.err.println(e.toString());
+        }
+
+        for(int i=0; i<confezione.getCntBott();i++)
+        {
+            System.out.println(confezione.vBottiglia[i].toString());
         }
     }
 

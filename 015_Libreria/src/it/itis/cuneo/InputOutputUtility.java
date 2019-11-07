@@ -1,0 +1,177 @@
+package it.itis.cuneo;
+
+/**
+ * Created by inf.barilea1810 on 30/10/2019.
+ */
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+
+public class InputOutputUtility {
+    public static DateFormat dfDayHour = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+    public static DateFormat dfDay = new SimpleDateFormat("dd/MM/yyyy");
+
+    //Stream -> (uscita di un tubo attaccato all'ingresso del tubo successivo)
+    //System.in = tastiera
+    //System.ou = console
+    private static InputStreamReader r = new InputStreamReader(System.in);
+    //Buffered -> memoria(nella RAM) che contiene i dati che arrivano da tastiera (raccoglie i dati)
+    private static BufferedReader br = new BufferedReader(r);
+
+
+    //leggi una stringa da tastiera
+    public static String leggiNome(String outStr){
+        String sc=null;
+
+        //richiesta di input
+        //outStr serve per la richiesta del dato da inserire
+        System.out.print(outStr);
+        //try catch -> può esserci un'eccezione I/O (input/output)
+        //es. tastiera rotta
+        try {
+            //leggo una sequanza di caratteri
+            sc=br.readLine();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return sc;
+    }
+
+
+    //leggi stringa da tastiera e la trasforma in numero di tipo int
+    public static int leggiNumero(String outStr){
+        int s=0;
+
+        System.out.print(outStr);
+        try {
+            s=Integer.parseInt(br.readLine());
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return s;
+    }
+
+
+    //leggi stringa da tastiera e la trasforma in numero di tipo double
+    public static double leggiNumeroDouble(String outStr){
+        double s=0;
+
+        System.out.print(outStr);
+        try {
+            s=Double.parseDouble(br.readLine());
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return s;
+    }
+
+
+    //leggi stringa da tastiera e la trasforma in numero di tipo float
+    public static float leggiNumeroFloat(String outStr) {
+        float f=0;
+
+        System.out.print(outStr);
+        try {
+            f=Float.parseFloat(br.readLine());
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+        return f;
+    }
+
+
+    //leggi stringa da tastiera e la trasforma in una data
+    public static Date leggiData(String outStr){
+        Date date = null;
+        DateFormat dfDay = new SimpleDateFormat("dd/MM/yyyy");
+
+        System.out.print(outStr);
+        try {
+            date = dfDay.parse(br.readLine());
+            //formatteddate = df.format(date);
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return date;
+    }
+
+
+    //Date df = Tastiera.leggiDataOra("06/08/2019 08:34", Tastiera.dfDayHour);
+    //Date df = Tastiera.leggiDataOra("06/08/2019", Tastiera.dfDay);
+    public static Date leggiDataOra(String outStr, DateFormat df){
+        Date date = null;
+
+        System.out.print(outStr);
+        try {
+            date = df.parse(br.readLine());
+            //formatteddate = df.format(date);
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return date;
+    }
+
+
+    public static Calendar leggiDataOraCalendar(String outStr, DateFormat df){
+        Date date = InputOutputUtility.leggiDataOra(outStr, df);
+
+        Calendar calendar = Calendar. getInstance();
+        calendar. setTime(date);
+
+        return calendar;
+    }
+
+
+    //String sDateHour = Tastiera.convertDataOra(thisPuntoAttributoOggetto, Tastiera.dfDayHour); //->"06/08/2019 08:34"
+    //String sDate = Tastiera.convertDataOra(thisPuntoAttributoOggetto, Tastiera.dfDay); //->"06/08/2019"
+    public static String convertDataOra(Date inDate, DateFormat df){
+        String strDate = df.format(inDate);
+        return strDate;
+    }
+
+
+    public static String convertDataOra(Calendar inCalendar, DateFormat df){
+        String strDate = df.format(inCalendar);
+        return strDate;
+    }
+
+
+    public static Calendar convertiDataOraToCalendar(String inStr, DateFormat df){
+        Date date = null;
+        try {
+            date = df.parse(inStr);
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        Calendar calendar = Calendar. getInstance();
+        calendar. setTime(date);
+
+        return calendar;
+    }
+
+
+}
+

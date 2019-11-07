@@ -2,12 +2,12 @@ package it.itis.cuneo;
 
 public class Bottiglia {
     private String marchio;
-    private float capacita;
-    private float prezzo;
+    private double capacita;
+    private double prezzo;
 
     public Bottiglia(){}
 
-    public Bottiglia(String marchio, float capacita, float prezzo) {
+    public Bottiglia(String marchio, double capacita, double prezzo) {
         this.marchio = new String(marchio);
         this.capacita = capacita;
         this.prezzo = prezzo;
@@ -27,19 +27,19 @@ public class Bottiglia {
         return marchio;
     }
 
-    public void setCapacita(float capacita) {
+    public void setCapacita(double capacita) {
         this.capacita = capacita;
     }
 
-    public float getCapacita() {
+    public double getCapacita() {
         return capacita;
     }
 
-    public void setPrezzo(float prezzo) {
+    public void setPrezzo(double prezzo) {
         this.prezzo = prezzo;
     }
 
-    public float getPrezzo() {
+    public double getPrezzo() {
         return prezzo;
     }
 

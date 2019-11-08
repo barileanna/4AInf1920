@@ -79,18 +79,4 @@ public class Programma {
         confronto = Math.abs(this.anno - programma.getAnno());
         return confronto;
     }
-
-    public static void main(String[] args) {
-        Programma programmaUno = new Programma("Intellij","IDEA","11.0","Windows",2012);
-        Programma programmaDue = new Programma(programmaUno);
-        programmaDue.setAnno(2013);
-
-        int x = programmaUno.comapreAnno(programmaDue);
-        if(x==0){
-            System.out.println("I programmi sono usciti lo stesso anno!");
-        }
-        else{
-            System.out.println("I programmi sono stati pubblicati a "+x+" anni di distanza");
-        }
-    }
 }

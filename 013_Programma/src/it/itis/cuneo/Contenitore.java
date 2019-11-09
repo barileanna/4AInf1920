@@ -57,6 +57,7 @@ public class Contenitore {
             if(vProgrammi[i].getDenominazione().equals(programma)){
                 trovato=true;
             }
+            i++;
         }
         if(trovato==false) {
             i=-1;

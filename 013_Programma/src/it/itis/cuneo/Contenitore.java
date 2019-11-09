@@ -73,14 +73,14 @@ public class Contenitore {
 
     public int confrontaContenitore(Contenitore contenitore){
         int conta;
-        conta = Math.max(cntProgrammi, contenitore.getN());
+        conta = Math.min(cntProgrammi, contenitore.getN());
         int cProgrammiComuni=0;
         int i=0;
         int c=0;
 
         for(i=0;i<conta;i++) {
-            for(c=0;c<conta;i++){
-                if(vProgrammi[i].equals(contenitore.vProgrammi[i])){
+            for(c=0;c<conta;c++){
+                if(vProgrammi[i].equals(contenitore.vProgrammi[c])){
                     cProgrammiComuni++;
                 }
             }
@@ -91,20 +91,35 @@ public class Contenitore {
 
     public static void main(String[] args) {
         Contenitore contenitore1 = new Contenitore();
+        Contenitore contenitore2 = new Contenitore();
         Programma programmaUno = new Programma("Intellij","IDEA","11.0","Windows", 2012);
         Programma programmaDue = new Programma("LiveCode", " ", "9.5.0", "Windows", 1993);
+        Programma programmaTre = new Programma("CodeBlock", " ", "9.5.0", "Windows", 1990);
 
 
         try {
             contenitore1.addProgramm(programmaDue);
+            contenitore1.addProgramm(programmaUno);
+            contenitore1.addProgramm(programmaTre);
+            contenitore2.addProgramm(programmaUno);
+            contenitore2.addProgramm(programmaDue);
         } catch (ContenitorePienoException e) {
             e.printStackTrace();
             System.err.println(e.toString());
         }
 
+        System.out.println("Contenitore UNO: ");
         for(int i=0; i<contenitore1.getN();i++)
         {
             System.out.println(contenitore1.vProgrammi[i].toString());
         }
+
+        System.out.println("Contenitore DUE: ");
+        for(int i=0; i<contenitore1.getN();i++)
+        {
+            System.out.println(contenitore1.vProgrammi[i].toString());
+        }
+
+        System.out.println("Ci sono "+contenitore1.confrontaContenitore(contenitore2)+" programmi uguali");
     }
 }

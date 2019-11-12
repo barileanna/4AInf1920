@@ -22,16 +22,6 @@ public class Contenitore {
 
     }
 
-
-
-    public void setProgramma(Programma programma, int posizione){
-
-        vProgrammi[posizione]=new Programma(programma);
-
-    }
-
-
-
     public String getProgramma(int posizione){
 
         return vProgrammi[posizione].toString();
@@ -72,7 +62,7 @@ public class Contenitore {
 
 
 
-    public void addProgramm(Programma programma) throws ContenitorePienoException {
+    public void setProgramma(Programma programma) throws ContenitorePienoException {
 
         if (cntProgrammi + 1 > N_PROGRAMMI) {
 
@@ -200,16 +190,16 @@ public class Contenitore {
 
         try {
 
-            contenitore1.addProgramm(programmaDue);
+            contenitore1.setProgramma(programmaDue);
 
-            contenitore1.addProgramm(programmaUno);
+            contenitore1.setProgramma(programmaUno);
 
-            contenitore1.addProgramm(programmaTre);
+            contenitore1.setProgramma(programmaTre);
 
-            contenitore2.addProgramm(programmaUno);
+            contenitore2.setProgramma(programmaUno);
 
-            contenitore2.addProgramm(programmaDue);
-            contenitore2.addProgramm(programmaTre);
+            contenitore2.setProgramma(programmaDue);
+            contenitore2.setProgramma(programmaTre);
             int x = contenitore1.cercaProgrammaPerDenominazione("Intellij");
             contenitore1.killProgramma(x);
 

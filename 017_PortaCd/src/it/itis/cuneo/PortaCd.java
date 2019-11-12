@@ -50,7 +50,7 @@ public class PortaCd {
         cntCd--;
     }
 
-    public int cercaCdPerTitolo(String cd){
+    public int cercaCdPerTitolo(String cd)throws CdNonTrovatoException{
         int i=0;
         boolean trovato=false;
         while(i< cntCd && trovato==false){
@@ -60,7 +60,7 @@ public class PortaCd {
             i++;
         }
         if(trovato==false) {
-            i=-1;
+            throw new CdNonTrovatoException (1,"Cd non trovato!");
         }
         return i;
     }
@@ -104,13 +104,12 @@ public class PortaCd {
             portaCdUno.addCd(cdTre);
             portaCdDue.addCd(cdDue);
             portaCdDue.addCd(cdTre);
-        } catch (PortaCdPienoException e) {
+            int x = portaCdUno.cercaCdPerTitolo("Ciao");
+            System.out.println("Il cd si trova in posizione "+x+" della collezione uno");
+        } catch (PortaCdPienoException | CdNonTrovatoException e) {
             e.printStackTrace();
             System.err.println(e.toString());
         }
-
-        int x = portaCdUno.cercaCdPerTitolo("EveryDay Life");
-        System.out.println("Il cd si trova in posizione "+x+" della collezione uno");
 
         System.out.println("Contenitore UNO: ");
         for(int i=0; i<portaCdUno.getN();i++)

@@ -1,0 +1,1 @@
+Barca{nome='ciao', nazionalita='Italia', lunghezza=12.0, stazza=1120.0, tipologia='vela'}Barca{nome='hi', nazionalita='Italia', lunghezza=13.0, stazza=132.0, tipologia='vela'}

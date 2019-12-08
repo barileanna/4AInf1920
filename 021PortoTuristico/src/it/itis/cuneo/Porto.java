@@ -9,8 +9,7 @@ public class Porto {
     private static final int N_MAX=100;
     private Barca[] vBarche;
     private int cntBarche;
-    private BufferedReader reader;
-    private BufferedWriter writer;
+
 
     public Porto(Barca[] vBarche, int cntBarche) {
         this.vBarche = vBarche;
@@ -56,9 +55,8 @@ public class Porto {
         System.out.println("Tipologia:");
         String tipologia = InputOutputUtility.leggiNome();
         if(tipologia.equals("vela")){
-
+            cntBarche = 50;
         }
-
         vBarche[cntBarche].setTipologia(tipologia);
         System.out.println("Nome: ");
         vBarche[cntBarche].setNome(InputOutputUtility.leggiNome());
@@ -115,7 +113,8 @@ public class Porto {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
         Porto porto = new Porto(0);
 
         try {
@@ -141,12 +140,18 @@ public class Porto {
             }
         }
 
-        /*for(int i=0;i<N_MAX;i++) {
-            try {
-                porto.toFile(porto.vBarche[i].toString());
-            } catch (IOException e) {
-                e.printStackTrace();
+        FileWriter w;
+        w = new FileWriter("porto.txt");
+
+        BufferedWriter b;
+        b=new BufferedWriter (w);
+
+        for(int i=0;i<N_MAX;i++){
+            if(porto.vBarche[i]!=null){
+                b.write(porto.vBarche[i].toString()+"\n");
+
             }
-        }*/
+        }
+        b.close();
     }
 }

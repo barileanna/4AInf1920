@@ -1,0 +1,3 @@
+0;Pinocchio;C.Collodi;150
+2;Pollicino;C.Perrault;80
+9;La bella addormantata nel bosco;C.Perrault;50

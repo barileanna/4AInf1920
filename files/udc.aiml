@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+
 <aiml>
   <category>
     <pattern>^ ciao ^</pattern>
@@ -6,6 +6,10 @@
   </category>
   <category>
     <pattern>^ ok ^</pattern>
+    <template>Bene! Quanti ragazzi eravate nel gruppo?</template>
+  </category>
+  <category>
+    <pattern>^ bene ^</pattern>
     <template>Bene! Quanti ragazzi eravate nel gruppo?</template>
   </category>
   <category>

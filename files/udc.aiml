@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <category>
+    <pattern>^ ciao ^</pattern>
+    <template>Benvenuto! Parliamo del tuo progetto di alternanza scuola-lavoro!</template>
+  </category>
+  <category>
+    <pattern>^ ok ^</pattern>
+    <template>Bene! Quanti ragazzi eravate nel gruppo?</template>
+  </category>
+  <category>
+    <pattern>*</pattern>
+    <template>Quale progetto avete affrontato voi <star/> ragazzi?</template>
+  </category>
+  <category>
+    <pattern>^ corvo ^</pattern>
+    <template>Wow! Chi erano i vostri clienti?</template>
+  </category>
+  <category>
+    <pattern>^ prof ^</pattern>
+    <template>Sono rimasti soddisfatti del vostro lavoro?</template>
+  </category>
+  <category>
+    <pattern>^ si ^</pattern>
+    <template>Complimenti, ottimo lavore!</template>
+  </category>
+  <category>
+    <pattern>^ no ^</pattern>
+    <template>Ops, mi dispiace.</template>
+  </category>
+ 
+</aiml>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Album>
+    <Brano idBrano="1" titolo="titolo 1" durata="122 sec." autore="autore1"/>
+    <Brano idBrano="1" titolo="titolo 2" durata="154 sec." autore="autore2"/>
+</Album>

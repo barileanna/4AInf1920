@@ -1,0 +1,20 @@
+<libreria>
+    <Brano>
+        <idBrano>1</idBrano>
+        <titolo>titolo1</titolo>
+        <durata>123</durata>
+        <autore>autore 1</autore>
+    </Brano>
+    <Brano>
+        <idBrano>2</idBrano>
+        <titolo>titolo2</titolo>
+        <durata>197</durata>
+        <autore>autore 2</autore>
+    </Brano>
+    <Brano>
+        <idBrano>3</idBrano>
+        <titolo>titolo3</titolo>
+        <durata>154</durata>
+        <autore>autore 3</autore>
+    </Brano>
+</libreria>

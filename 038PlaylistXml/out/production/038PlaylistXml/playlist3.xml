@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playlist>
+    <brani idBrano="1">
+        <autore>Oasis</autore>
+        <durata>198</durata>
+        <titolo>Wonderwall</titolo>
+    </brani>
+    <brani idBrano="2">
+        <autore>Mandy Moore</autore>
+        <durata>219</durata>
+        <titolo>Willin'</titolo>
+    </brani>
+</playlist>

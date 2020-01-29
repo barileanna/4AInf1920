@@ -3,6 +3,7 @@ package it.itis.cuneo;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Objects;
 
 public class Brano {
     private int idBrano;
@@ -76,5 +77,21 @@ public class Brano {
                 "\t\t<durata>" + durata + "</durata>\n" +
                 "\t\t<autore>" + autore + "</autore>\n" +
                 "\t</brano>\n";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Brano brano = (Brano) o;
+        return idBrano == brano.idBrano &&
+                durata == brano.durata &&
+                Objects.equals(titolo, brano.titolo) &&
+                Objects.equals(autore, brano.autore);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idBrano, titolo, durata, autore);
     }
 }

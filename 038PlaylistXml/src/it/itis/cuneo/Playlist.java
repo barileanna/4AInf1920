@@ -1,4 +1,5 @@
 package it.itis.cuneo;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -6,48 +7,45 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Playlist {
-    public static final String FILE_PATH = "C:\\Users\\Anna\\Desktop\\038PlaylistXml\\src\\it\\itis\\cuneo\\playlist3.xml";
-    private List<Brano> playlist;
+    public static final String FILE_PATH = "C:\\Users\\Anna\\Desktop\\038PlaylistXmlLib\\src\\playlist3.xml";
+    private List<Brano> brano;
 
     public Playlist(){
         super();
-        playlist = new ArrayList<Brano>();
+        brano = new ArrayList<Brano>();
     }
 
     public void addBrano(Brano brano){
-        playlist.add(brano);
+        this.brano.add(brano);
     }
 
-    public List<Brano> getPlaylist() {
-        return playlist;
+    public List<Brano> getBrano() {
+        return brano;
     }
 
     @XmlElement
-    public void setPlaylist(List<Brano> playlist) {
-        this.playlist = playlist;
+    public void setBrano(List<Brano> brano) {
+        this.brano = brano;
     }
 
     @Override
     public String toString() {
         return "Playlist{" +
-                "playlist=" + playlist +
+                "playlist=" + brano +
                 '}';
     }
 
     public String toXml() {
         String xml = "";
-        for(Brano brano : this.playlist) {
+        for(Brano brano : this.brano) {
             xml += brano.toXml();
         }
         xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"+"\n"+"<playlist>\n"
@@ -69,14 +67,23 @@ public class Playlist {
     }
 
     public void marshallingXml(){
-        try{
+        try {
+            //nome del file di uscita
             File file = new File(Playlist.FILE_PATH);
+            //classe di cui è fatta la lista, per capire come specchiare l'oggetto
+            //crea il contesto da cui nasce tutto, nuovo ambiente adatto alla classe percorso
             JAXBContext jaxbContext = JAXBContext.newInstance(Playlist.class);
+            //crea marshaller tramite jaxbcontext(con singletone), marshaller = proprietà del context
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
+            // output pretty printed
+            //marshaller creato dal contesto, fare un output formattato
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+            //fa il marshall sia sul file che sull'output in console
             jaxbMarshaller.marshal(this, file);
             jaxbMarshaller.marshal(this, System.out);
+
         } catch (JAXBException e) {
             e.printStackTrace();
         }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<biciclette>
+    <bicilette>
+        <telaio>Atala</telaio>
+        <freno>shimano</freno>
+        <cambio>campagnolo</cambio>
+        <ruotaA>ruota1</ruotaA>
+        <ruotaP>ruota2</ruotaP>
+    </bicilette>
+    <bicilette>
+        <telaio>tel2</telaio>
+        <freno>fre2</freno>
+        <cambio>cam2</cambio>
+        <ruotaA>ruota3</ruotaA>
+        <ruotaP>ruota4</ruotaP>
+    </bicilette>
+</biciclette>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<hotel nome="alto">
+    <camera nome="13S">
+        <letto>2</letto>
+        <bagno>si</bagno>
+        <vista>mare</vista>
+    </camera>
+    <camera nome="13B">
+        <letto>3</letto>
+        <bagno>no</bagno>
+        <vista>città</vista>
+    </camera>
+    <camera nome="13A">
+        <letto>4</letto>
+        <bagno>si</bagno>
+        <vista>mare</vista>
+    </camera>
+</hotel>

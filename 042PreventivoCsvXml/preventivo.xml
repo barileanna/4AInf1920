@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<preventivo>
+    <cliente cognome="ROSSI" nome="MARIO">
+        <indirizzo>VIA SOLE</indirizzo>
+        <articolo codice="sz1">
+            <descrizione>domestico</descrizione>
+            <importoSenzaIVA>100.0</importoSenzaIVA>
+            <quantita>2</quantita>
+            <scontoPercentuale>20</scontoPercentuale>
+        </articolo>
+        <articolo codice="sz2">
+            <descrizione>domestica</descrizione>
+            <importoSenzaIVA>15.0</importoSenzaIVA>
+            <quantita>1</quantita>
+            <scontoPercentuale>10</scontoPercentuale>
+        </articolo>
+    </cliente>
+    <cliente cognome="MASI" nome="LUCA">
+        <indirizzo>VIA LUNA</indirizzo>
+        <articolo codice="sz3">
+            <descrizione>informatico</descrizione>
+            <importoSenzaIVA>200.0</importoSenzaIVA>
+            <quantita>3</quantita>
+            <scontoPercentuale>15</scontoPercentuale>
+        </articolo>
+        <articolo codice="sz4">
+            <descrizione>domotico</descrizione>
+            <importoSenzaIVA>23.0</importoSenzaIVA>
+            <quantita>8</quantita>
+            <scontoPercentuale>10</scontoPercentuale>
+        </articolo>
+    </cliente>
+</preventivo>

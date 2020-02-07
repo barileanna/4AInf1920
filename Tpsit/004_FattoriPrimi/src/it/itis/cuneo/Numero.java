@@ -2,6 +2,8 @@ package it.itis.cuneo;
 
 public class Numero extends Thread {
     private int numero;
+    int num;
+    int cnt;
 
     public Numero() {
     }
@@ -12,19 +14,20 @@ public class Numero extends Thread {
 
     @Override
     public void run() {
-        int num = numero ;
-        while(numero == 1){
+        num = numero;
+        cnt = 1;
+        while(numero >= num/2 ){
             int delay = (int) Math.round((Math.random() * (1000 - 500))+ 500);
             try {
                 this.sleep(delay);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            for(int cnt=0;cnt<numero;cnt++){
-                if(numero%cnt == 0){
-                    numero = numero/cnt;
-                }
+            if(numero%cnt == 0){
+                numero = numero/cnt;
+                System.out.println(num +" : "+ "fattore primo: " + cnt + "\t" + numero);
             }
+            cnt++;
         }
         System.out.println(num + ": ha terminato");
     }

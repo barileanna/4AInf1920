@@ -1,0 +1,5 @@
+<magazzino name="m1">
+    <prodotto id="p1">pasta</prodotto>
+    <prodotto id="p2">riso</prodotto>
+    <prodotto id="p3">latte</prodotto>
+</magazzino>

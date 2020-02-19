@@ -11,7 +11,7 @@ public class Thread1 extends Thread{
     }
 
     public void run(){
-        buffer.setX(buffer.getB()*4);
+        buffer.setX(buffer.getA()+buffer.getB()*4);
         System.out.println("X1 = "+ buffer.getX());
     }
 }

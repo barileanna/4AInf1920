@@ -38,7 +38,7 @@ public class Tris extends JFrame implements ActionListener{
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
-    private void initComponets() {
+    public void initComponets() {
         JPanel grigliaTris = new JPanel();
         grigliaTris.setLayout(new GridLayout(3,3));
         for(int r = 0; r < 3; r++){
@@ -78,6 +78,9 @@ public class Tris extends JFrame implements ActionListener{
                         isWinnerD1();
                         isWinnerD2();
                         partitaFinita();
+                        if(c==2 && r==2){
+                            c=c-1;
+                        }
                     }
                 }else{
                     System.out.println("Turno" + turno + " del computer");
@@ -109,7 +112,7 @@ public class Tris extends JFrame implements ActionListener{
         }
     }
 
-    private void partitaFinita() {
+    public void partitaFinita() {
         int cnt = 0;
         for(int r=0; r<3; r++){
             for(int c=0; c<3;c++){
@@ -123,7 +126,7 @@ public class Tris extends JFrame implements ActionListener{
         }
     }
 
-    private void toggle(JButton jButton) {
+    public void toggle(JButton jButton) {
         String txt = jButton.getText();
         if((turno %2)==0){
             if(txt.equalsIgnoreCase("")){
@@ -135,13 +138,13 @@ public class Tris extends JFrame implements ActionListener{
         jButton.setText(txt);
     }
 
-    private void printWinner(String x) {
+    public void printWinner(String x) {
         JOptionPane.showMessageDialog(this,x);
         salva(x);
         newGame();
     }
 
-    private void newGame() {
+    public void newGame() {
         for(int r=0;r<3;r++){
             for(int c=0; c<3; c++){
                 matrice[r][c].setText("");
@@ -151,7 +154,7 @@ public class Tris extends JFrame implements ActionListener{
         turno = 0;
     }
 
-    private void salva(String x) {
+    public void salva(String x) {
         BufferedWriter bw;
         String str = "";
         Calendar calendar = Calendar.getInstance();
@@ -178,10 +181,9 @@ public class Tris extends JFrame implements ActionListener{
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-    private void isWinnerD1() {
+    public void isWinnerD1() {
         contD = 0;
         for(int c=0; c<3; c++){
             for(int r=0; r<3; r++){
@@ -201,7 +203,7 @@ public class Tris extends JFrame implements ActionListener{
         }
     }
 
-    private void isWinnerD2() {
+    public void isWinnerD2() {
         contD = 0;
         for(int c=0; c<3; c++){
             for(int r=0; r<3; r++){
@@ -221,7 +223,7 @@ public class Tris extends JFrame implements ActionListener{
         }
     }
 
-    private void isWinnerC() {
+    public void isWinnerC() {
         for(int c=0; c<3; c++){
             for(int r=0; r<3; r++){
                 if(matrice[r][c].getText().equalsIgnoreCase(X)){
@@ -240,7 +242,7 @@ public class Tris extends JFrame implements ActionListener{
         }
     }
 
-    private void isWinnerR(){
+    public void isWinnerR(){
         for(int r=0; r<3; r++){
             for(int c=0; c<3; c++){
                 if(matrice[r][c].getText().equalsIgnoreCase(X)){

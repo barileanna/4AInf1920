@@ -64,3 +64,75 @@ O X O
 X O O 
 X O X 
 
+26/02/20 16:03:42
+HA VINTO: X
+X X X 
+O X O 
+- O O 
+
+26/02/20 16:04:16
+HA VINTO: O
+O X - 
+O - - 
+O - X 
+
+27/02/20 12:16:06
+HA VINTO: O
+O - - 
+O X X 
+O - - 
+
+27/02/20 12:16:19
+HA VINTO: O
+O X O 
+X O O 
+X X O 
+
+27/02/20 12:16:24
+HA VINTO: O
+- O X 
+X O O 
+X O - 
+
+27/02/20 12:16:29
+HA VINTO: O
+O - O 
+X O - 
+X X O 
+
+27/02/20 12:16:33
+HA VINTO: X
+- O X 
+O X O 
+X O X 
+
+27/02/20 12:24:52
+HA VINTO: O
+- - X 
+X - - 
+O O O 
+
+27/02/20 12:26:10
+HA VINTO: O
+- X - 
+- X - 
+O O O 
+
+27/02/20 12:29:11
+HA VINTO: O
+- X X 
+- - - 
+O O O 
+
+27/02/20 12:29:15
+HA VINTO: X
+X - O 
+X O X 
+X O O 
+
+27/02/20 12:31:19
+HA VINTO: O
+X X O 
+- X - 
+O O O 
+

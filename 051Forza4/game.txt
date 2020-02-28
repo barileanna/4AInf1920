@@ -1,0 +1,112 @@
+26/02/20 16:46:49
+HA VINTO: GIALLO (COLONNA 2)
+- G R G 
+R G R G 
+R G G R 
+R G R G  
+
+27/02/20 11:42:40
+HA VINTO: G
+G - - - 
+R G - - 
+G G G R 
+R R R G 
+
+27/02/20 11:44:16
+HA VINTO: R
+- - - R 
+- - R G 
+- R G R 
+R G G G 
+
+27/02/20 12:01:30
+PAREGGIO
+R G R G 
+G R G R 
+R R R G 
+G G R G 
+
+27/02/20 12:20:02
+HA VINTO: ROSSO (COLONNA3)
+- - R - 
+- G R R 
+- G R G 
+- G R G 
+
+27/02/20 12:20:14
+HA VINTO: G(DIAGONALE)
+G - - - 
+G G - - 
+R G G R 
+R R R G 
+
+27/02/20 12:20:27
+PAREGGIO
+R R G G 
+G R G G 
+R G G R 
+G R R R 
+
+27/02/20 12:22:08
+HA VINTO: G(DIAGONALE)
+- - - G 
+- R G G 
+- G R R 
+G R R G 
+
+27/02/20 12:37:20
+HA VINTO: GIALLO (COLONNA 3)
+R R G R 
+R R G R 
+R R G G 
+G G G R 
+
+27/02/20 12:37:34
+HA VINTO: ROSSO (RIGA3)
+R R R - 
+R R R R 
+R G G G 
+G R G G 
+
+27/02/20 12:40:01
+PAREGGIO
+R R G G 
+G R R R 
+G R R G 
+R G G G 
+
+27/02/20 12:40:51
+HA VINTO: GIALLO (RIGA 1)
+- - - - 
+- - - - 
+- R R R 
+G G G G 
+
+27/02/20 12:41:25
+PAREGGIO
+R R G G 
+G G R R 
+R G R G 
+G G R G 
+
+27/02/20 12:41:31
+HA VINTO: GIALLO (COLONNA 2)
+- G R - 
+R G G - 
+R G R - 
+R G G - 
+
+27/02/20 12:41:40
+PAREGGIO
+G R G R 
+R R R G 
+G G R G 
+R G G G 
+
+27/02/20 12:41:51
+HA VINTO: ROSSO (COLONNA1)
+R R - - 
+R R R G 
+R G G G 
+R G G G 
+

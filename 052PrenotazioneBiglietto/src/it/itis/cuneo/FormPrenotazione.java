@@ -4,9 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class FormPrenotazione extends JFrame implements ActionListener {
@@ -34,7 +32,7 @@ public class FormPrenotazione extends JFrame implements ActionListener {
     JButton salva;
 
     //array di prenotazioni
-    private ArrayList<Prenotazione> prenotazioni;
+    private ArrayList<Prenotazione> vPrenotazioni;
     //dichiarazione contatore per la stampa
     private int cnt = 0;
     //percorso del file da salvare
@@ -42,7 +40,7 @@ public class FormPrenotazione extends JFrame implements ActionListener {
 
     public FormPrenotazione(){
         //creazione array list
-        prenotazioni = new ArrayList<Prenotazione>();
+        vPrenotazioni = new ArrayList<Prenotazione>();
         //set titolo finestra
         setTitle("Prenota il tuo biglietto!");
         //set dimensioni finestra
@@ -153,7 +151,7 @@ public class FormPrenotazione extends JFrame implements ActionListener {
         //gestore degli eventi
         salva.addActionListener(this);
 
-        //pulsante stampa
+        //pulsante stampa delle singole prenotazioni
         stampa = new JButton("Stampa");
         //inserimento campo di testo sul pannello
         bottoni.add(stampa);
@@ -175,7 +173,7 @@ public class FormPrenotazione extends JFrame implements ActionListener {
             //salva la prenotazione
             salvaInfo(prenotazione);
             //aggiungere la prenotazione all'array list
-            prenotazioni.add(prenotazione);
+            vPrenotazioni.add(prenotazione);
             //messaggio di conferma
             printMessage("Confermata la prenotazione");
         }
@@ -196,6 +194,13 @@ public class FormPrenotazione extends JFrame implements ActionListener {
             //pulisce i campi di testo
             reset();
         }
+    }
+
+    //stampa di tutte le prenotazioni dell'array
+    private void printAllPrenotazioni() {
+        String string = "";
+        for (Prenotazione prenotazione : vPrenotazioni) string += prenotazione.toString() + "\n";
+        JOptionPane.showMessageDialog(null, string);
     }
 
     //stampa delle prenotazioni
@@ -221,12 +226,15 @@ public class FormPrenotazione extends JFrame implements ActionListener {
 
 
         //SOLUZIONE CON I PULSANTI AVANTI E INDIETRO
-        JPanel show = new JPanel();
+        //stampa delle prenotazioni già salvate nel file
+        apriFile();
         //caratteri pulsanti della finestra
-        String[] options = {"< indietro", "avanti >"};
+        String[] options = {"< indietro", "avanti >", "allPrenotation"};
         String string = "";
-        while(cnt<prenotazioni.size()){
-            string = "Prenotazione "+ (cnt+1)+" " +prenotazioni.get(cnt).toString();
+        //se non vengono stamapte tutte le prenotazioni
+        boolean allPren = false;
+        while(cnt< vPrenotazioni.size() && allPren==false){
+            string = "Prenotazione "+ (cnt+1)+" " + vPrenotazioni.get(cnt).toString();
             //JOptionPane.showMessageDialog(null, vPrenotazioni.toString()) --> utilizzo JOptionPane.showOptionDialog per poter inserire il pulsante avanti/indietro
             int x = JOptionPane.showOptionDialog(null, string, null, JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
             //pulsante indietro
@@ -238,6 +246,10 @@ public class FormPrenotazione extends JFrame implements ActionListener {
             if(x==1){
                 //contatore incrementato
                 cnt++;
+            }
+            if(x==2){
+                printAllPrenotazioni();
+                allPren=true;
             }
             //pulsante chiudi finestra di messaggio
             if(x== JOptionPane.CLOSED_OPTION){
@@ -284,10 +296,10 @@ public class FormPrenotazione extends JFrame implements ActionListener {
             //creazione bufferedWriter
             bw= new BufferedWriter(new FileWriter(FILE_PATH, true));
             //ciclo for per tutte le prenotazioni
-            for(int cntPrenotazioni=0; cntPrenotazioni<prenotazioni.size(); cntPrenotazioni++)
+            for(int cntPrenotazioni = 0; cntPrenotazioni< vPrenotazioni.size(); cntPrenotazioni++)
             {
                 //prenotazione
-                Prenotazione pren = prenotazioni.get(cntPrenotazioni);
+                Prenotazione pren = vPrenotazioni.get(cntPrenotazioni);
                 //stampa di controllo
                 System.out.println(pren.toString());
                 //scrittura sul file della prenotazione in formato csv
@@ -304,6 +316,25 @@ public class FormPrenotazione extends JFrame implements ActionListener {
         }
     }
 
+    public void apriFile() {
+        BufferedReader br;
+        String rowLine;
+        Prenotazione prenotazione = null;
+        try {
+            br = new BufferedReader(new FileReader(FILE_PATH));
+
+            while((rowLine = br.readLine()) != null){
+                String[] campi = rowLine.split(Prenotazione.SEPARATOR);
+                vPrenotazioni.add(new Prenotazione(campi[0], campi[1], campi[2], campi[3], campi[4], campi[5]));
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     //main
     public static void main(String[] args) {
         //creazione finestra
@@ -313,7 +344,7 @@ public class FormPrenotazione extends JFrame implements ActionListener {
     @Override
     public String toString() {
         return "FormPrenotazione{" +
-                "prenotazioni=" + prenotazioni +
+                "prenotazioni=" + vPrenotazioni +
                 '}';
     }
 }
